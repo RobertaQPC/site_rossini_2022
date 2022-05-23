@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.809" height="21.812" viewBox="0 0 21.809 21.812">
+  <g id="mail-icon" transform="translate(0.917 0.895)">
+    <g id="Group_11" data-name="Group 11">
+      <g id="phone">
+        <path id="Shape_59" data-name="Shape 59" d="M296.451,163.984l.011.006a4.918,4.918,0,0,0,6.118-.671l.688-.688a1.64,1.64,0,0,0,0-2.319l-2.9-2.9a1.64,1.64,0,0,0-2.319,0h0a1.637,1.637,0,0,1-2.318,0l-4.638-4.639a1.64,1.64,0,0,1,0-2.319h0a1.639,1.639,0,0,0,0-2.318l-2.9-2.9a1.64,1.64,0,0,0-2.319,0l-.688.688a4.919,4.919,0,0,0-.672,6.118l.007.011a44.38,44.38,0,0,0,11.925,11.927Z" transform="translate(-283.75 -144.76)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

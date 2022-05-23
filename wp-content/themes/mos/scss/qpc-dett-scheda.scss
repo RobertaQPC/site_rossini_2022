@@ -1,0 +1,268 @@
+.article-title {
+  font-size: 10vw;
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.article-title::-webkit-scrollbar {
+  display: none;
+}
+
+.bgHeaderCorsi {
+    background-image: url($images_dir + "corsi.png");
+
+    &:before {
+      background-color: #ff0000;
+    }
+  
+}
+
+.mc-d-wrapper {
+  display: flex;
+  align-items: center;
+}
+.wrap-scheda-dett {
+  .wrap-info-calendar {
+    right: 45px !important;
+  }
+}
+.cont-swiper-calendario {
+  .mc-description.news-home {
+    position: absolute;
+    bottom: 70px;
+    padding: 20px;
+    z-index: 3;
+    & * {
+      color: $color_white;
+      font-weight: $font_weight_bold;
+    }
+  }
+  .featured-image,
+  .img-container {
+    transition: all 0.5s ease-in-out 0s;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      box-shadow: inset 0px -197px 80px 2px rgba(0, 0, 0, 0.74);
+    }
+
+    &:hover {
+      transition: all 0.5s ease-in-out 0s;
+      mix-blend-mode: multiply;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $theme_color;
+        left: 0;
+        top: 0;
+        mix-blend-mode: multiply;
+        animation: 0.7s fade-in ease forwards;
+      }
+    }
+    img {
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .wrap-cta-carousel {
+    padding: 20px 0;
+    background: $theme_color;
+    z-index: 3;
+    position: relative;
+    &:hover {
+      background: white;
+      .wp-block-button__link {
+        background: $theme_color;
+        color: white;
+      }
+    }
+    .wp-block-button__link {
+      background: white;
+      color: $theme_color;
+      display: table;
+      margin: 0 auto;
+    }
+  }
+
+  .wrap-info {
+    span {
+      &:nth-of-type(1) {
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-calendar-white.svg") repeat !important;
+        }
+      }
+      &:nth-of-type(2) {
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-time-white.svg") repeat !important;
+        }
+      }
+      &:nth-of-type(3) {
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-pin-white.svg") center no-repeat !important;
+        }
+      }
+    }
+  }
+}
+
+.calendario-template {
+  h3 {
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  }
+  .wrap-scheda-dett {
+    h2 {
+      display: table;
+      margin: 10px auto 60px auto;
+    }
+  }
+  .wp-block-button {
+    display: table;
+    margin: 30px auto !important;
+    a {
+      font-size: $size_base2;
+    }
+  }
+  .wrap-info-calendar {
+    position: absolute;
+    background: $theme_color;
+    right: 20px;
+    top: 20px;
+    padding: 15px 20px;
+    color: white;
+    z-index: 3;
+    span {
+      display: block;
+      font-family: $font_serif_regular;
+      &:nth-of-type(2) {
+        font-size: 34px;
+        line-height: 24px;
+        vertical-align: unset;
+        display: inline;
+      }
+    }
+  }
+  .wrap-info {
+    span {
+      color: $theme_color;
+      display: block;
+      margin: 15px 0;
+      &:before {
+        content: "";
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        vertical-align: bottom;
+        display: inline-block;
+      }
+      &:nth-of-type(1) {
+        display: inline-block;
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-calendar.svg") repeat;
+        }
+      }
+      &:nth-of-type(2) {
+        display: inline-block;
+        padding-left: 15px;
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-time.svg") repeat;
+        }
+      }
+      &:nth-of-type(3) {
+        &:before {
+          content: "";
+          background: url($images_dir + "icon-pin.svg") repeat;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cont-swiper-calendario .wrap-info span:nth-of-type(1)::before {
+    background: url($images_dir + "icon-calendar.svg") center no-repeat !important;
+    background-size: contain !important;
+  }
+  .cont-swiper-calendario .wrap-info span:nth-of-type(2)::before {
+    background: url($images_dir + "icon-time.svg") center no-repeat !important;
+    background-size: contain !important;
+  }
+  .cont-swiper-calendario .wrap-info span:nth-of-type(3)::before {
+    background: url($images_dir + "icon-pin.svg") center no-repeat !important;
+    background-size: contain !important;
+  }
+  .calendario-template .wrap-info span {
+    display: flex !important;
+  }
+
+  .cont-swiper-calendario .mc-description.news-home {
+    position: relative;
+    bottom: auto;
+    background: #e4e4e4;
+  }
+  .cont-swiper-calendario .mc-description.news-home * {
+    color: inherit;
+  }
+  .calendario-template .wrap-info span:nth-of-type(1) {
+    display: block;
+  }
+  .calendario-template .wrap-info span:nth-of-type(2) {
+    display: block;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrap-info-calendar {
+    display: none;
+  }
+}
+@media only screen and (max-width: 568px) {
+  .wp-block-button__link {
+    padding: 5px 20px;
+  }
+
+  .cont-swiper-calendario {
+    .wrap-cta-carousel {
+      padding: 10px 0;
+    }
+    .mc-description.news-home {
+      font-size: $size_footer;
+      padding: 10px;
+      line-height: 15px;
+      a {
+        font-size: $size_span;
+      }
+    }
+  }
+  .calendario-template .wrap-info span {
+    &:before {
+      width: 15px;
+      height: 15px;
+    }
+    &:nth-of-type(3) {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

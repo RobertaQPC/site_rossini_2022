@@ -1,0 +1,27 @@
+/* ==========================================================================
+	Imports
+ ========================================================================== */
+
+
+
+
+#login h1 a, .login h1 a {
+  display: block;
+  width: 300px;
+  position: relative;
+  background: unset;
+  padding:10px;
+  background: unset;
+}
+#login h1 a:before, .login h1 a:before {
+  content: '';
+  background: url($images_dir + 'qpc-logo.svg') transparent no-repeat center center;
+
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top:0;
+  display: block;
+}

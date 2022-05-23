@@ -1,0 +1,549 @@
+/* ==========================================================================
+	Imports
+ ========================================================================== */
+@import
+'variables',
+'reset',
+'animations',
+'swiper/swiper-master',
+'swiper',
+'accordion',
+'404',
+'tabs',
+'buttons',
+'blog',
+'blocks',
+'qpc-menu-toogle',
+'qpc-infografica',
+'wp-native-gallery',
+'pre-header',
+'header',
+'qpc-col',
+'qpc-dett-scheda',
+'forms',
+'footer',
+'qpc-loading-screen',
+'jquery.fancybox.min.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;700&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  @include tipografia(sans-serif);
+  color: $text_color;
+}
+
+.input-wrap-header input,
+.swiper-head .wrap-swiper-title span,
+.titleHome span,
+h1, h2, h3, h4, h5, h6  {
+  @include tipografia();
+}
+
+img{
+  width: 100%;
+}
+
+/* ==========================================================================
+	@mixin
+/* ========================================================================== */
+
+.qpcScrollWrapper{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+
+.qpcScrollContainer{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@mixin box-shadow-blur($blur-value) {
+  box-shadow: 0px 0px $blur-value 0px rgba(0, 0, 0, 0.20);
+}
+
+.tabs p {
+@include tipografia(sans-serif);
+  .quote {
+  @include tipografia();
+  }
+}
+
+.search-form-header .input-wrap-header input,
+.article-title.news-home {
+  font-size: $size_base
+}
+
+b, strong {
+  font-weight: $font_weight_bold;
+}
+
+a{
+  color: inherit;
+  font-weight: bold;
+}
+
+.qpc-container{
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+.displayFlexcenter{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+/* ================= */
+
+
+  .breadcrumb{
+    margin: 20px 0;
+  }
+
+.retino {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url($images_dir + 'pattern.png') repeat;
+}
+
+
+/* ==========================================================================
+	Pagination
+/* ========================================================================== */
+
+.navigation {
+  display: block;
+  margin: 50px auto 50px auto;
+  text-align: center;
+  color: $color_white;
+  float: left;
+  clear: both;
+  width: 100%;
+  li, li.active a, li.disabled{
+    display: inline;
+    a, &:hover{
+      background-color: $theme_color;
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 12px;
+      padding: 0.75rem;
+    }
+  }
+}
+
+.navigation li a:hover,
+.navigation li.active a {
+  background-color: $color_white;
+  border: 1px solid $theme_color;
+  color: $theme_color;
+}
+
+/* ========================================================================== */
+
+.excerpt {
+  font-weight: bold;
+}
+
+
+h1.title-style-theme-color {
+  &:after {
+    background: $color_white !important;
+    color: $color_white;
+    content: " ";
+  }
+}
+
+
+.category_description{
+  max-width: 550px;
+  margin: 0 auto 90px auto;
+  padding: 20px;
+  p{
+  font-size: 18px !important;
+  }
+}
+
+.row-news{
+  margin: 0 auto 110px
+}
+
+
+/* ==========================================================================
+ 	Welcome section
+ ========================================================================== */
+
+
+#content-wrap {
+  i {
+    color: $theme_color;
+  }
+  a {
+    font-weight: bold;
+  }
+}
+
+
+.all-results {
+  display: flex;
+  align-items: center;
+  background: $theme_color !important;
+
+  a {
+    color: $color_white;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+/* ========================================================================*/
+/* ! LAYOUT */
+/* ========================================================================*/
+
+.part-extra-padding {
+  margin: 70px auto;
+}
+
+.breadcrumb {
+  font-size: $size_span;
+  span{
+    font-size: $size_span;
+  }
+}
+
+
+/* ==========================================================================
+	Archivio categoria
+ ========================================================================== */
+
+ h2.article-title{  text-align: left;}
+ h3.article-title{  text-align: center;}
+
+/* ==========================================================================
+	Pagina dettaglio
+ ========================================================================== */
+
+
+/* ==========================================================================
+	Pagina dettaglio
+ ========================================================================== */
+
+.post-type-archive, .post-template, .blog, .search-results {
+  ul {
+    & h2, & h3 {
+      font-family: $font_sans_serif_regular;
+      color: $color_black;
+    }
+
+    & .img-container img {
+      margin: 0 auto;
+      display: block;
+    }
+
+    & .titleCustomPost {
+      font-size: 63px !important;
+      color: $color_link !important;
+      font-family: $font_sans_serif_regular !important;
+      display: table;
+      text-align: center;
+      font-weight: 900;
+      line-height: 61px;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+
+  }
+}
+
+/* ==========================================================================
+	Box partners
+ ========================================================================== */
+
+.wrap-partners{
+  ul{
+    list-style-type: none;
+    max-width: 500px;
+    margin: 0;
+    padding: 0;
+    li{
+      display: inline-block;
+      margin: 10px 5px;
+    }
+  }
+}
+
+/* ==========================================================================
+	Box news homepage
+ ========================================================================== */
+
+ /* Content */
+ #content-wrap {
+   display: block;
+   margin: 0 auto;
+   /*max-width: 1170px;*/
+ }
+
+
+.container-news {
+  position: relative;
+  margin: 0 auto;
+  .btnScheda{
+    display: block;
+    margin: 0 auto;
+    margin: 40px auto 0 auto;
+    text-align: center !important;
+    color: $theme_color;
+  }
+}
+
+.mc-description.news-home{
+  color: $text_color;
+  font-size: 16px;
+  padding: 30px 60px;
+  text-align: left;
+  a{
+    font-size: $size_base;
+    padding: 7px 0 7px 0;
+    display: block;
+    text-decoration: none;
+  }
+}
+
+/* ==========================================================================
+	Pagina contatti
+ ========================================================================== */
+.page-id-2317{
+  .titleCenter{
+    margin: 10px auto 30px auto;
+  }
+  iframe{
+    margin: 30px 0 0 0;
+  }
+}
+
+.logo-contatti{
+  img{
+    max-width: 200px;
+  }
+}
+
+.icons-social-contact{
+  display: table;
+  margin: 0 auto;
+  a{
+    display: inline-block;
+    margin: 0 5px;
+    color: $text_color;
+    img{
+      min-height: 40px;
+      max-height: 40px;
+    }
+  }
+}
+
+/* ==========================================================================
+	Pagina contatti
+ ========================================================================== */
+
+ .page-id-683{
+   .wp-block-column{
+     img{
+       max-width: 350px;
+     }
+   }
+ }
+
+.alert{
+  background: $theme_color2;
+  border-radius: 20px;
+  padding: 10px 0;
+  color: $text_color;
+  font-weight: $font_weight_bold;
+}
+
+/* ==========================================================================
+	Post type / plugin
+ ========================================================================== */
+
+ .wrap-archive-products{
+   h3{
+     text-align: center;
+   }
+ }
+
+
+@media only screen and (min-width: 1024px) {
+
+  .row-news {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 50px;
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+    & .article-title {
+      text-align: center;
+    }
+    & .col-md-4 {
+      margin: 0 0 40px 0;
+    }
+  }
+
+}
+
+
+@media only screen and (max-width: 1366px) {
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .welcome-title {
+    h1 {
+      font-size: 40px !important;
+      line-height: 1em;
+      font-weight: 900;
+    }
+    h3 {
+      font-size: 22px !important;
+      line-height: 1em;
+    }
+   }
+  }
+
+@media only screen and (max-width: 960px) {
+
+  h1.title-style{
+    font-size: 2.5rem;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .qpc-container{
+    padding: 20px;
+  }
+  .breadcrumb{
+    display: none;
+  }
+
+  .wrap-archive-products {
+    h3 {
+      font-size: 16px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .article-title {
+    text-align: center;
+  }
+
+  .header-medium-heigth {
+    min-height: 200px;
+  }
+
+  .header-medium-heigth .titleHome {
+    font-size: 8vw;
+    line-height: 0.9em;
+    width: 100%;
+    h1 {
+      font-size: 4vw;
+      margin-top: 20px;
+    }
+  }
+
+  .wrap-text {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .yt-player {
+    width: 100%;
+    min-height: 155px;
+  }
+
+
+  .wrap-autocomplete {
+
+    input {
+      font-size: 12px;
+      &:first-child {
+        margin: 15px 0 10px 0;
+      }
+
+    }
+  }
+
+  .wrap-box {
+    .article-title {
+      left: auto;
+      font-size: 20px;
+      width: 100%;
+      bottom: 10px;
+    }
+  }
+
+
+}
+
+@media only screen and (max-width: 568px) {
+
+  .wrap-partners{
+    ul li{
+      margin: 5px !important;
+    }
+    .qpcRow .qpc-col-33{
+      width: 29.333%;
+    }
+    .qpcRow .qpc-col-33:first-child,
+    .qpcRow .qpc-col-33:last-child {
+      padding: 0;
+    }
+  }
+
+  body{
+    font-size: $size_base3;
+  /*  line-height: 20px; */
+  }
+
+  .mc-description.news-home{
+    padding: 10px;
+    .btnScheda{
+      margin: 10px auto;
+    }
+  }
+
+}
+
+/* oltre i 1534px */
+@media only screen and (min-width: 1535px) {
+
+}
+
+/* High PX Density */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+
+}

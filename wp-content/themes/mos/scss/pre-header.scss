@@ -1,0 +1,118 @@
+.home{
+  .container-pre-header{
+    position: absolute;
+    top: 0;
+  }
+  .strip, .strip-2{
+    top: 40px;
+  }
+}
+
+.container-pre-header{
+  font-size: $size_base;
+  position:relative;
+  z-index: 6;
+  width: 100%;
+  color: $color_white;
+  border-width: 0 0 1px;
+  border-color: $color_white;
+  border-style: solid;
+  .container{
+   padding: 10px 0;
+  }
+
+ .icons-social{
+   position:absolute;
+   right: 0;
+   a{
+     display: inline-block;
+     margin: 0 5px;
+     color: $text_color;
+     img{
+       min-height: 20px;
+       max-height: 20px;
+     }
+   }
+ }
+}
+
+.strip, .strip-2{
+  position: relative;
+  width: 100%;
+  height: 3px;
+  z-index: 4;
+  background: $theme_color;
+  &-2{
+      background: $theme_color2 !important;
+  }
+}
+
+.extra-menu-qpc-class{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  li{
+    display: inline-flex;
+    align-items: center;
+    a{
+      color: $color_white;
+      text-decoration: none;
+      font-family: $font_sans_serif_regular;
+      font-weight: $font_weight_bold;
+      font-size: $size_span;
+    }
+  }
+  .icon-1, .icon-2, .icon-3, .icon-4{
+    &:before{
+      content: '';
+      position:relative;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      display: block;
+      background-size: contain !important;
+    }
+  }
+  .icon-1{
+    &:before{
+      content: '';
+      background: url($images_dir + 'mail-icon.svg') no-repeat center;
+    }
+  }
+  .icon-2{
+    &:before{
+      content: '';
+      background: url($images_dir + 'phone-icon.svg') no-repeat center;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .menu-pre-header-container{
+    left: 20px;
+    position: relative;
+  }
+  .container-pre-header .icons-social{
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+ .extra-menu-qpc-class li a{
+   font-size: $size_footer;
+ }
+}
+
+@media only screen and (max-width: 568px) {
+
+ .container-pre-header .container{
+
+ }
+ .extra-menu-qpc-class li a{
+   font-size: 10px;
+ }
+
+}

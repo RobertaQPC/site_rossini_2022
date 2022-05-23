@@ -1,0 +1,96 @@
+/* ==========================================================================
+ Variables
+/* ========================================================================== */
+/* Directories */
+$theme_dir: 'https://dev.quartopianocomunicazione.it:8887/site_rossini_2022/wp-content/themes/mos/';
+$images_dir: 'https://dev.quartopianocomunicazione.it:8887/site_rossini_2022/wp-content/themes/mos/images/';
+$fonts_dir: 'https://dev.quartopianocomunicazione.it:8887/site_rossini_2022/wp-content/themes/mos/fonts/';
+
+/* Colors */
+$color_link: #ffbd4a;
+$color_link_dark: #333;
+$color_black: #000;
+$color_white: #fff;
+$body_background: #fff;
+$theme_color: #ff5c5c; //fucsia
+$theme_color2: #ffbd4a; //giallo
+$text_color: #333333;
+
+$light_gray: #e8e8e8;
+$medium_gray:#cecece;
+$medium_gray-2: #797979;
+
+$pagination_buttons: 40px;
+
+/* Font Sizes */
+$size_base: 18px;
+$size_big_title: 60px;
+$size_big_title_variable: 7vw;
+$size_base2: 21px;
+$size_base3: 16px;
+$size_span: 14px;
+$size_footer: 12px;
+
+/* Font family */
+$font_serif_regular: 'Playfair Display', serif;
+$font_serif_bold:'' ;
+$font_sans_serif_regular: 'Work Sans', sans-serif;
+$font_sans_serif_bold: '';
+$font_weight_bold: 700;
+$font_weight_regular: 400;
+
+
+/* helpers */
+$bg_white: rgb(255, 255, 255);
+$bg_black: rgba(0, 0, 0, 0.6);
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 21px;
+$max_font: 54px;
+
+
+@mixin tipografia( $family: serif) {
+  @if $family == serif {
+    font-family: 'Playfair Display', serif;
+  } @else {
+    font-family: 'Work Sans', sans-serif;
+    font-size: $size_base;
+    font-weight: 400 !important;
+
+  }
+}
+
+@mixin border-radius-rounded($raggio) {
+  -webkit-border-radius: $raggio;
+  -moz-border-radius: $raggio;
+  -ms-border-radius: $raggio;
+  -o-border-radius: $raggio;
+  border-radius: $raggio;
+}
+
+$raggio: 100%;
+$raggio-0: 0;

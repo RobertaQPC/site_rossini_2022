@@ -1,0 +1,118 @@
+.qpcRow{
+  display:flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .qpc-col{
+    width: auto;
+  }
+  .qpc-col-33{
+
+    width: 23.333%;
+    margin: 10px 0 20px 0;
+    border-width: 0 1px 1px 0;
+    border-color: #000;
+    border-style: solid;
+    padding: 4.5%;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    background-color: $color_white;
+   /*   &:first-child{
+       padding-right: 2%
+    }
+    &:last-child{
+       padding-left: 2%
+    } */
+  }
+  .qpc-col-25{
+    width: 25%;
+  }
+
+  .qpc-col-50{
+    width: 48%;
+    position: relative;
+    &:first-child{
+       padding-right: 2%
+    }
+    &:last-child{
+       padding-left: 2%
+    }
+  }
+}
+
+/* ==========================================================================
+	Heplers
+ ========================================================================== */
+
+ .h3-wrapper{
+   display: flex;
+   align-items: center;
+   padding: 10px 0;
+ }
+
+ .displayFlexAiC{
+   position: relative;
+   display: flex;
+   align-self: center;
+ }
+
+.jc-sb{
+  justify-content: space-between;
+  display: flex;
+}
+
+.ai-fs{
+  align-items: flex-start;
+}
+
+
+@media only screen and (max-width: 1023px) {
+
+
+
+
+  .calendario-template, .row-archive-products {
+    .qpcRow{
+      .qpc-col-33{
+        width: 48%;
+        padding-right: 1%;
+        padding-left: 1%;
+        &:first-child{
+           padding-right: 1%
+        }
+        &:last-child{
+           padding-left: 1% 
+        }
+      }
+    }
+  }
+
+  .wrap-partners{
+  .qpcRow .qpc-col-33:first-child, .qpcRow .qpc-col-33:first-child{
+     padding-right: 0 !important;
+   }
+  }
+
+  .qpcRow{
+    .qpc-col-33{
+      width: 46%;
+      &:first-child{
+         padding-right: 2%
+      }
+      &:last-child{
+         padding-left: 2%
+      }
+    }
+    .qpc-col-25{
+      width: 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .qpcRow{
+    .qpc-col-25,  .qpc-col-50{
+      width: 100%;
+    }
+  }
+}

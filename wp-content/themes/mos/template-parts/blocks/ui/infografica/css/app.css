@@ -1,0 +1,45 @@
+.qpc-infografica {
+  background: #ffbd4a;
+  padding-bottom: 15px; }
+  .qpc-infografica .qpc-col {
+    position: relative; }
+    .qpc-infografica .qpc-col:after {
+      content: '';
+      position: absolute;
+      bottom: 15px;
+      right: 0;
+      width: 1px;
+      height: 70%;
+      background: #333333; }
+    .qpc-infografica .qpc-col:last-child:after {
+      content: none; }
+    .qpc-infografica .qpc-col span {
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      font-family: "Work Sans", sans-serif;
+      padding: 10px 0; }
+      .qpc-infografica .qpc-col span:first-of-type {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 60px; }
+
+@media only screen and (max-width: 1024px) {
+  .qpc-infografica .qpc-col {
+    padding: 0 20px; } }
+
+@media only screen and (max-width: 768px) {
+  .qpc-infografica .qpc-col {
+    padding: 0 20px; }
+    .qpc-infografica .qpc-col span:first-of-type {
+      font-size: 28px; } }
+
+@media only screen and (max-width: 568px) {
+  .qpc-infografica .jc-sb {
+    display: block; }
+  .qpc-infografica .qpc-col {
+    padding: 0 20px;
+    width: 40%;
+    display: inline-grid; }
+    .qpc-infografica .qpc-col:nth-of-type(2):after {
+      content: none; } }

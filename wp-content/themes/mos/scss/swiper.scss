@@ -1,0 +1,285 @@
+
+.wp-block-cover, .wp-block-cover-image{
+  padding: 0;
+}
+
+// Blocco swiper
+.swiper-head{
+  position: relative;
+  width: 100%;
+  &:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  .img-head{
+    width: 100%;
+    height: 100vh;
+    background-size: cover !important;
+  }
+  .wrap-swiper-title{
+    position: absolute;
+    z-index: 2;
+    mix-blend-mode: difference;
+    padding: 0;
+    margin: 0;
+    span{
+      font-size: 78px !important;
+      font-weight: 700;
+      color: white;
+      line-height: 85px;
+      color: white;
+    }
+  }
+}
+
+
+// Blocco swiper
+
+
+// General swiper
+.swiper-wrapper {
+  padding-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+}
+
+.swiper-pagination-white .swiper-pagination-bullet-active {
+  background: $theme_color;
+}
+
+.swiper-pagination-bullet {
+  background: none;
+  border: 2px solid $theme_color;
+}
+
+.swiper-pagination {
+  bottom: 0;
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+
+
+.swiper1 .swiper-slide {
+  display: flex;
+  align-items: center;
+  background: Black;
+}
+
+.swiper-slide {
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrap-text {
+  margin: 0 auto;
+}
+
+.parallax-bg {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.swiper-slide .title {
+  font-size: 52px;
+  font-weight: 300;
+  text-align: center;
+  font-weight: 900;
+}
+
+.swiper-slide .subtitle {
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+	Ovveride slider home
+ ========================================================================== */
+
+ .swiper-home{
+   height:100vh !important;
+ }
+
+.swiper1 {
+  padding: 0;
+
+  .swiper-wrapper {
+    padding-bottom: 0;
+  }
+  .swiper-slide {
+    display: block;
+    background: $color_white;
+    padding: 0;
+    .wrap-box {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      .article-title {
+        display: block;
+        width: 100%;
+        a {
+          color: $color_white;
+        }
+      }
+      .btnScheda {
+        background: $color_white;
+      }
+    }
+  }
+  .swiper-pagination1 {
+    .swiper-pagination-bullet {
+      border: 1px solid $color_white;
+      &.swiper-pagination-bullet-active {
+        background: $color_white;
+      }
+    }
+  }
+}
+
+.cont-swiper-news {
+  position: relative;
+  display: block;
+  .swiper2 {
+    padding: 5px;
+    .swiper-slide {
+      text-align: center;
+      color: $text_color;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.47);
+    }
+    .swiper-wrapper {
+      padding-bottom: 80px;
+    }
+    .swiper-pagination {
+      bottom: 0 !important;
+      padding: 25px 0;
+      .swiper-pagination-bullet{
+        border: 1px solid $theme_color;
+        background: none;
+        &-active{
+          background: $theme_color;
+        }
+      }
+    }
+    img{
+      margin: 0;
+    }
+  }
+
+  .swiper-button-next2, .swiper-button-prev2 {
+
+    border-radius: $pagination_buttons $pagination_buttons;
+    min-height: $pagination_buttons;
+    height: $pagination_buttons;
+    width: $pagination_buttons;
+    text-align: center;
+    font-size: 1.4em;
+    vertical-align: middle;
+    line-height: ($pagination_buttons * 0.9);
+    background: $color_white;
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+  }
+
+  .swiper-button-prev2 {
+    left: -40px !important;
+
+    &::before {
+      content: "";
+      background: url($images_dir + 'arrow-swiper.svg') repeat;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+    }
+  }
+  .swiper-button-next2 {
+    right: -40px !important;
+
+    &::before {
+      content: "";
+      background: url($images_dir + 'arrow-swiper.svg') repeat;
+      display: block;
+      width: 40px;
+      height: 40px;
+      transform: rotate(180deg);
+      background-size: contain;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    border: 2px solid $text_color;
+    opacity: 1;
+    &.swiper-pagination-bullet-active {
+      background: $text_color;
+    }
+
+  }
+}
+
+.wrap-text {
+  max-width: 55%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.swiper-slide {
+  .title {
+    line-height: 55px;
+    color: $color_white;
+    font-family: $font_sans_serif_regular;
+  }
+
+}
+@media only screen and (max-width: 1366px) {
+
+  .swiper-head .wrap-swiper-title span{
+    font-size: 60px !important;
+    line-height: 62px;
+  }
+
+}
+@media only screen and (max-width: 1024px) {
+
+  .swiper-head .wrap-swiper-title span{
+    font-size: 48px !important;
+    line-height: 50px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+ .swiper-button-prev,
+ .swiper-button-next,
+ .swiper-button-prev2,
+ .swiper-button-next2 {
+  display: none;
+ }
+
+}
+
+@media only screen and (max-width: 568px) {
+
+ .swiper-head .wrap-swiper-title span {
+   font-size: 34px !important;
+   line-height: 34px;
+ }
+
+}
