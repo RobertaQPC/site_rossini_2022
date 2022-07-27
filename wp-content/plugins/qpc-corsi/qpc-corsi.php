@@ -64,7 +64,7 @@ function qpc_corsi()
         'rewrite' => array('slug' => 'corso', 'with_front' => true),
         'query_var' => true,
         'menu_position' => 5,
-        'menu_icon' => 'dashicons-database-import',
+        'menu_icon' => 'dashicons-media-audio',
         'supports' => $supports,
         'taxonomies' => array('corsi'),
         'show_in_rest' => true,
@@ -130,10 +130,20 @@ function nettuno_cron_function()
         insertUpdateCorsoAfam($corso);
     }
 */
-    $corsi = callApiNettuno('offerteFormative');
+    $corsi = array_merge(
+        callApiNettuno('offerteFormative', 'tr'),
+        callApiNettuno('offerteFormative', 'bn'),
+        callApiNettuno('offerteFormative', 'po')
+    );
 
     foreach ($corsi['offerteFormative'] as $corso) {
         insertUpdateOffertaFormativa($corso);
+    }
+
+    $corsi = callApiNettuno('corsiAfam');
+
+    foreach ($corsi['corsiAfam'] as $corso) {
+        insertUpdateCorsoAfam($corso);
     }
 
     /*  $discipline = callApiNettuno('discilineAfam');
@@ -155,7 +165,15 @@ add_action('nettuno_cron', 'nettuno_cron_function');
 add_action('admin_menu', 'register_nettuno_menu_page');
 function register_nettuno_menu_page()
 {
-    add_menu_page('Import Nettuno', 'Import Nettuno', 'manage_options', 'nettuno-import', 'nettuno_cron_function', 'dashicons-welcome-widgets-menus', 90);
+    add_menu_page('Import Nettuno', 'Import Nettuno', 'manage_options', 'nettuno-import', 'nettuno_import_admin', 'dashicons-database-import', 90);
+}
+
+function nettuno_import_admin(){
+    echo "<div class='wrap'>";
+    echo "<h1>Import Nettuno</h1>";
+    nettuno_cron_function();
+    echo "<p>loading... </p>";
+    echo "</div>";
 }
 
 function deleteOldLogs()
@@ -196,12 +214,12 @@ function callApiNettuno($params)
             "Api-Key: L|#i18*/@Fd[h>5+lU.;5j}-WN#61K"
         ),
     ));
-
     return executeGETcurl($curl);
 }
 
 function executeGETcurl($curl)
 {
+
     $response = curl_exec($curl);
     $err      = curl_error($curl);
     curl_close($curl);
@@ -215,7 +233,7 @@ function executeGETcurl($curl)
 function insertUpdateCorsoAfam($corso)
 {
 
-    if ($corso['descLivello'] !== null) {
+    if ($corso['idlivello'] == 'tr' || $corso['idlivello'] == 'bn' || $corso['idlivello'] == 'po') {
         $term = get_term_by('name', $corso['descLivello'], 'corsi_categoria');
 
         if (!$term) {
@@ -224,15 +242,20 @@ function insertUpdateCorsoAfam($corso)
         $args = ['taxonomy' => 'corsi_categoria', 'parent' => $term->term_id, 'name' => $corso['descCorso'], "hide_empty" => false];
         $childTerm = get_terms($args);
 
+        var_dump($corso);
         if (count($childTerm) == 0) $childTerm[0] = wp_insert_term($corso['descCorso'], 'corsi_categoria', ['parent' => $term->term_id]);
 
         update_field('idCorso', $corso['idCorso'], 'corsi_categoria_' . $childTerm[0]->term_id);
+        update_field('reqSupplement', $corso['reqSupplement'], 'corsi_categoria_' . $childTerm[0]->term_id);
+        update_field('programmaEsameAmmissione', $corso['programmaEsameAmmissione'], 'corsi_categoria_' . $childTerm[0]->term_id);
     }
 }
 function insertUpdateOffertaFormativa($corso)
 {
 
-    if ($corso['descLivello'] !== null) {
+    if ($corso['idlivello'] == 'tr' || $corso['idlivello'] == 'bn' || $corso['idlivello'] == 'po') {
+        var_dump($corso);
+
         $term = get_term_by('name', $corso['descLivello'], 'corsi_categoria');
 
         if (!$term) {
@@ -244,52 +267,50 @@ function insertUpdateOffertaFormativa($corso)
         if (count($childTerm) == 0) $childTerm[0] = wp_insert_term($corso['descCorso'], 'corsi_categoria', ['parent' => $term->term_id]);
 
         update_field('idCorso', $corso['idCorso'], 'corsi_categoria_' . $childTerm[0]->term_id);
-    }
 
 
+        if ($corso['idCorso'] !== null) {
 
-    if ($corso['idCorso'] !== null) {
+            $postid = null;
+            $args = array(
+                'numberposts'    => -1,
+                'post_type'      => 'corsi',
+                'meta_key'       => 'idmateria',
+                'meta_value'     => $corso['idMateria']
+            );
 
-        $postid = null;
-        $args = array(
-            'numberposts'    => -1,
-            'post_type'      => 'corsi',
-            'meta_key'       => 'idmateria',
-            'meta_value'     => $corso['idMateria']
-        );
-
-        // query
-        $the_query = new WP_Query($args);
-        if ($the_query->have_posts()) {
-            while ($the_query->have_posts()) {
-                $the_query->the_post();
-                $postid = get_the_ID();
+            // query
+            $the_query = new WP_Query($args);
+            if ($the_query->have_posts()) {
+                while ($the_query->have_posts()) {
+                    $the_query->the_post();
+                    $postid = get_the_ID();
+                }
             }
+            wp_reset_query();
+            // ITALIANO
+            $post_array = array(
+                'post_type'    => 'corsi',
+                'post_status'  => 'publish',
+                'post_title'   => $corso['descMateria']
+            );
+
+
+
+            if ($postid !== null) {
+                $post_array['ID'] = $postid;
+            }
+   ///         $post_array['tax_input'] = array('corsi_categoria' => $childTerm[0]->term_id);
+            $post_id = wp_insert_post($post_array);
+            wp_set_post_terms($post_id, array($childTerm[0]->term_id), 'corsi_categoria', true);
+
+
+            update_field('idMateria', $corso['idMateria'], $post_id);
+            update_field('tipologia', $corso['tipologia'], $post_id);
+            update_field('daanno', $corso['daanno'], $post_id);
+            update_field('finoanno', $corso['finoanno'], $post_id);
+            update_field('ore', $corso['ore'], $post_id);
+            update_field('crediti', $corso['crediti'], $post_id);
         }
-        wp_reset_query();
-        // ITALIANO
-        $post_array = array(
-            'post_type'    => 'corsi',
-            'post_status'  => 'publish',
-            'post_title'   => $corso['descMateria'],
-            'post_content' => $corso['programmaDisciplina']
-        );
-
-
-
-        if ($postid !== null) {
-            $post_array['ID'] = $postid;
-        }
-        $post_array['tax_input'] = array('corsi_categoria' => $childTerm[0]->term_id);
-        $post_id = wp_insert_post($post_array);
-
-
-
-        update_field('idMateria', $corso['idMateria'], $post_id);
-        update_field('tipologia', $corso['tipologia'], $post_id);
-        update_field('daanno', $corso['daanno'], $post_id);
-        update_field('finoanno', $corso['finoanno'], $post_id);
-        update_field('ore', $corso['ore'], $post_id);
-        update_field('crediti', $corso['crediti'], $post_id);
     }
 }

@@ -41,7 +41,7 @@ if (!empty($swiper['gestione_testo']['riga'])) { ?>
             <div class="swiper-home block-right">
                 <video width="<?= $swiper['html5']['larghezza']; ?>"
                        height="<?= $swiper['html5']['altezza']; ?>"
-				       <?php if ( $swiper['html5']['autoplay'] ) : ?> playsinline autoplay muted <?php endif; ?>>
+				       <?php if ( $swiper['html5']['autoplay'] ) : ?> playsinline autoplay muted loop <?php endif; ?>>
                     <source src="<?= $swiper['html5']['file_mp4']; ?>" type="video/mp4">
 					<?php if ( $swiper['html5']['file_ogg'] != '' ) : ?>
                         <source src="<?= $swiper['html5']['file_ogg']; ?>"

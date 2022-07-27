@@ -1,182 +1,19 @@
-
-
-.anchorLink{
-  position: absolute;
-  width: 100%;
-  bottom: 50px;
-  color: $color_white;
-  text-decoration: none;
-  font-family: $font_sans_serif_regular;
+.wp-block-buttons.is-content-justification-center{
+  display: flex;
 }
-
-.cta-arrow{
-  font-family: $font_sans_serif_regular;
-  color: $color_black;
-  text-decoration: none;
-  font-size: $size_span;
-  display: inline-grid;
-  align-items: center;
-  position: relative;
-    &:before{
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0%;
-    transform: translateX(-50%);
-    height: 1px;
-    background: $color_black;
-    transition: .35s;
-  }
-  &:after{
-    content: '';
-    position:absolute;
-    background: url($images_dir + 'cta-arrow.svg') no-repeat center;
-    width: 31px;
-    height: 14px;
-    right: -40px;
-    transition: all 0.4s ease-in-out 0s;
-  }
-  &:hover{
-      &:after{
-        right: -50px;
-      }
-      &:before{
-        width: 100%;
-      }
-  }
-}
-
-.cta-deafult{
-  color: $color_black;
-  text-decoration: none;
-  display: inline-grid;
-  align-items: center;
-  position: relative;
-    &:before{
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0%;
-    transform: translateX(-50%);
-    height: 1px;
-    background: $color_black;
-    transition: .35s;
-  }
-  &:hover{
-      &:before{
-        width: 100%;
-      }
-  }
-}
-
-.btnDown {
-  bottom: 15px;
-  left: 0;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  z-index: 9;
-}
-
-.btnDown path {
-  fill: #fff
-}
-
-.btnScheda {
-  display: table;
-  cursor: pointer;
-  border: 1px solid !important;
-  overflow: hidden;
-  border-radius: 20px;
-  text-decoration: none;
-  text-align: center;
-  margin: 20px auto;
-  font-size: $size_base;
-  font-family: $font_sans_serif_regular;
-  font-weight: $font_weight_regular;
-  padding: 10px 40px;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  &:hover, &:focus, &:active {
-    color: white !important;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $theme_color2;
-    color: $theme_color;
-    transform: scaleY(0);
-    transform-origin: 50% 100%;
-    transition-property: transform;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
-    border-radius: 20px;
-  }
-}
-
-.btnScheda:hover:before, .btnScheda:focus:before, .btnScheda:active:before {
-  transform: scaleY(1);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-}
-
-.btnInput{
-  border: 1px solid #1D1D1B;
-  padding: 10px 70px;
-  display: inline-block;
-  float: left;
-  font-size: 16px;
-  color: #1D1D1B;
-  margin-top: 30px !important;
-  transition: all 0.4s ease-in-out 0s;
-  &:hover{
-    background: #1D1D1B;
-    color: white;
-  }
-}
-
-.btnSchedaPath {
-  text-align: center;
-  display: table;
-  margin: 20px auto;
-  font-size: 18px;
-  text-transform: uppercase;
-  padding: 5px 55px;
-  color: #fff;
-  font-weight: 500;
-  background-color: $color_link;
-}
-
-a.btnSchedaPath:hover {
-  color: $color_white;
-}
-
 .qpc-top-icon {
   display: inline-block;
   height: 40px;
   width: 40px;
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 100px;
+  right: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border-radius: 100%;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  z-index: 999;
+  z-index: 4;
   background: rgba(0, 0, 0, 0.8) url($images_dir + 'qpc-top-arrow.svg') no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
@@ -201,52 +38,110 @@ a.btnSchedaPath:hover {
   opacity: 1;
 }
 
-
-.btn-skew-wrap {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-}
-
-.btn-skew {
-  background: $theme_color;
-  -webkit-transform: skew(-200deg);
-  -moz-transform: skew(-200deg);
-  transform: skew(-200deg);
-  padding: 3px 12px 3px 12px;
-  display: table;
-  margin: 0 auto;
-  transition: all 0.5s ease;
-
-  &:hover {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+// CTA BUTTON
+.cta-button{
+  border-radius: $raggio-1;
+  font-family: $font_sans_serif_bold;
+  transition: all 0.4s ease-in-out 0s;
+  text-decoration: none;
+  position: relative;
+  &-underline{
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%);
+      height: 2px;
+      background: $color_black;
+      transition: .35s;
+      }
+      &:hover{
+        &:before{
+          width: 0%;
+        }
+      }
   }
-
-  a {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+  &-underline-reverse{
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 0%;
+      transform: translateX(-50%);
+      height: 2px;
+      background: $color_white;
+      transition: .35s;
+      }
+      &:hover{
+        &:before{
+          width: 100%;
+        }
+      }
+  }
+  &-white{
+    background: $color_white;
+    color: $text_color;
+    &:hover{
+      background: $text_color;
+      color: $color_white;
+    }
+  }
+  &-uppercase{
+    text-transform: uppercase;
+  }
+  &-colored{
+    background: $theme_color;
     color: $color_white;
+    border-radius: $raggio-4;
+    padding: 10px 20px;
+    &:hover{
+      background: $color_white;
+      color: $theme_color;
+      border: 1px solid $theme_color;
+    }
   }
-
-  span {
-    font-weight: bold;
+  &-outline{
+    border: 1px solid $color_black;
+    color: $color_black;
+    text-align: center;
+    padding: 10px 20px;
+    &:hover{
+      background: $color_black;
+      color: $color_white;
+      span{
+        color: $color_white !important;
+        &:before{
+          color: $color_white !important;
+        }
+      }
+    }
   }
+  &-centered{
+    margin: 0 auto;
+    display: table;
+  }
+  &-centered-full{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+}
+// CTA BUTTON
 
+@media only screen and (max-width: 1280px) {
+
+  .cta-button{
+    padding: 8px 20px;
+    font-size: $size_little;
+  }
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 768px) {
 
-  .btnScheda{
-    font-size: $size_span;
-    padding: 5px;
+  .cta-button{
+    padding: 8px 20px;
   }
-
-.cta-arrow{
-  &:after{
-   top: 7px;
-  }
- }
-
 }

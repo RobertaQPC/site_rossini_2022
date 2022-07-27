@@ -16,6 +16,16 @@
   width: 100%;
   background: $light_gray;
 
+  .qpc-container{
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+    img{
+      mix-blend-mode: multiply;
+    }
+  }
+
   .wrap-box-newsletter {
     position: relative;
     max-width: 700px;
@@ -32,7 +42,7 @@
     }
     h3 {
       @include fluid-type($min_width, $max_width, $min_font, $max_font);
-    
+
       text-align: left;
       margin: 10px 0;
     }
@@ -40,10 +50,7 @@
       position: relative;
       z-index: 1;
     }
-    .wrap-check-input {
-      span {
-      }
-    }
+
     .wpcf7-form-text-white {
       span {
         display: block;
@@ -51,7 +58,7 @@
       }
     }
     .acceptance {
-      font-size: $size_footer;
+      font-size: $size_base;
       text-align: left;
       input {
         padding: 0;
@@ -87,7 +94,7 @@
       font-weight: $font_weight_bold;
       border-bottom: 1px solid;
       margin-left: 30px;
-      font-size: $size_span;
+      font-size: $size_base;
       border-radius: 0;
       text-transform: uppercase;
     }
@@ -115,6 +122,7 @@ input {
     margin-right: 12px;
     input {
       width: auto;
+      margin-right: 5px;
     }
   }
 }
@@ -125,6 +133,10 @@ input {
   font-size: 12px;
   font-weight: 300;
   text-align: left;
+  input {
+    margin-right: 8px !important;
+    box-sizing: border-box;
+  }
   a {
     margin-left: 3px;
   }

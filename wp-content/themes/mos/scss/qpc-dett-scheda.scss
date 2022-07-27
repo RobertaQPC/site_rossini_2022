@@ -1,14 +1,23 @@
-.article-title {
-  font-size: 10vw;
-  width: 100%;
-  overflow-x: scroll;
-  white-space: nowrap;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.article-title::-webkit-scrollbar {
-  display: none;
-}
+.qpc-block-title{
+  .wrap-long-text {
+   white-space: nowrap;
+   will-change: transform;
+   font-size: 10vw;
+   .long-text:first-child {
+       position: absolute;
+       left: -100%;
+       bottom: 0;
+       font-family: $font_serif_regular;
+       }
+   .long-text:last-child{
+       font-family: $font_sans_serif_regular;
+       }
+    }
+  }
+
+
+
+
 
 .bgHeaderCorsi {
     background-image: url($images_dir + "corsi.png");
@@ -16,7 +25,7 @@
     &:before {
       background-color: #ff0000;
     }
-  
+
 }
 
 .mc-d-wrapper {
@@ -32,7 +41,7 @@
   .mc-description.news-home {
     position: absolute;
     bottom: 70px;
-    padding: 20px;
+    padding: 20px !important;
     z-index: 3;
     & * {
       color: $color_white;
@@ -134,7 +143,7 @@
     display: table;
     margin: 30px auto !important;
     a {
-      font-size: $size_base2;
+      font-size: $size_base_2;
     }
   }
   .wrap-info-calendar {
@@ -150,7 +159,7 @@
       font-family: $font_serif_regular;
       &:nth-of-type(2) {
         font-size: 34px;
-        line-height: 24px;
+      //  line-height: 24px;
         vertical-align: unset;
         display: inline;
       }
@@ -247,11 +256,11 @@
       padding: 10px 0;
     }
     .mc-description.news-home {
-      font-size: $size_footer;
+      font-size: $size_base;
       padding: 10px;
       line-height: 15px;
       a {
-        font-size: $size_span;
+        font-size: $size_base;
       }
     }
   }

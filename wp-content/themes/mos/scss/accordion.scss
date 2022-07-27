@@ -1,54 +1,85 @@
+.wrap-rassegna-stampa{
+  display: grid;
+  margin: 20px auto;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 0px 0px;
+  width: 100%;
+  text-align: center;
+  transition: all .35s;
 
-
-/* ACCORDION */
-.accordion {
-  h3 {
-    background: $theme_color;
-    color: $color_white;
-    margin: 0 0 1px 0;
-    padding-left: 15px;
-    cursor: pointer;
-    font-weight: 700;
+  .calendario-template{
+    border: 0;
+    padding: 0;
+    .wrap-info-calendar{
+      position:relative;
+      right: auto;
+      top: auto;
+      margin: 0;
+          border: 0;
+      padding: 10px 20px;
+      span:nth-of-type(2){
+        font-size: $medium_title;
+      }
+    }
   }
-}
+  div{
+    border: 1px solid;
+    margin: 0 10px;
+    display: grid;
+    align-items: center;
+    transition: all .35s;
 
-.ui-accordion-content {
-  background: rgba(255, 255, 255, 0.75);
-  p {
-    padding: 15px;
-    margin: 0;
+    &:nth-of-type(3){
+      padding: 20px;
+    }
+    img{
+      max-width: 25px;
+    }
   }
+  @media (hover: hover) and (pointer: fine) {
+   &:hover div{
+    background-color: black;
+    color: white;
+   }
+ }
 }
-
-
+.wrap-accordion{
+  margin: 20px auto;
+}
 
 .accordion-head-wrap {
-  border-radius: 8px;
+  // border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
-  input {
+ // box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+  .accordion-radio {
     position: absolute;
     opacity: 0;
     z-index: -1;
   }
-
 }
+
+.input-menu-accordion{
+  display: none;
+}
+
 .accordion-head {
   width: 100%;
-  color: white;
   overflow: hidden;
   &-label {
     display: flex;
     justify-content: space-between;
     padding: 1em;
-    background: $theme_color;
-    font-weight: bold;
+    border-top: 1px solid;
+    font-family: $font_sans_serif_regular;
+    transition: all .35s;
     cursor: pointer;
-    /* Icona */
-    &:hover {
-      background: darken($theme_color, 10%);
+    @media (hover: hover) and (pointer: fine) {
+    &:hover{
+        background: $color_black;
+        color: $color_white;
     }
-    &::after {
+  }
+    &:after {
       content: "\276F";
       width: 1em;
       height: 1em;
@@ -58,34 +89,85 @@
   }
   &-content {
     max-height: 0;
+    height: 100%;
     padding: 0 1em;
-    color: $theme_color;
     background: white;
     transition: all .35s;
+    p{
+      margin: 0;
+    }
   }
   &-close {
     display: flex;
     justify-content: flex-end;
     padding: 1em;
     font-size: 0.75em;
-    background: $theme_color;
     cursor: pointer;
     &:hover {
-      background: darken($theme_color, 10%);
+        background: $color_black;
     }
   }
+
 }
 
 // apro e chiudo
 input:checked {
   + .accordion-head-label {
-    background: darken($theme_color, 10%);
+    background: $color_black;
+    color: $color_white;
+    font-family: $font_sans_serif_bold;
+
     &::after {
       transform: rotate(90deg);
+      position: relative;
+      left: 10px;
+      top: 5px;
     }
   }
   ~ .accordion-head-content {
-    max-height: 100vh;
+    max-height: 100%;
     padding: 1em;
+  }
+
+}
+
+.open-accordion{
+  max-height: 100vh;
+  /* padding: 1em; */
+  padding: 0;
+}
+
+@media only screen and (max-width: 810px)  {
+  .wrap-accordion{
+    width: 100%;
+    .text-mw-600{
+      padding: 0 !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px)  {
+  .wrap-rassegna-stampa{
+    grid-template-columns: 1fr ;
+    .calendario-template{
+      .wrap-info-calendar{
+        span{
+          display: inline-block;
+         &:nth-of-type(2){
+          font-size: $medium_title;
+         }
+        }
+      }
+    }
+    div{
+      border: 1px solid;
+      margin: 10px 0;
+      display: block;
+      align-items: center;
+      transition: all .35s;
+      &:nth-of-type(3){
+        padding: 10px;
+      }
+    }
   }
 }

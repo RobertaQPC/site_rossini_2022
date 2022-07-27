@@ -1,6 +1,58 @@
 
-.popout{
-  margin: 0 auto;
+
+.toggle {
+    display: none;
+}
+
+.button_container {
+      position: relative;
+      height: $button-height;
+      width: $button-width;
+      cursor: pointer;
+      z-index: 100;
+      transition: opacity .25s ease;
+
+      &:hover {
+        opacity: .7;
+      }
+
+      &.active {
+        .top {
+          transform: translateY(8px) translateX(0) rotate(45deg);
+          background: $color_white;
+            width: 42px;
+        }
+        .middle {
+          transform: translateY(-3px) translateX(0) rotate(-45deg);
+          background: $color_white;
+            width: 42px;
+        }
+
+      .bottom {
+        transform: translateY(-11px) translateX(0) rotate(-45deg);
+        background:$color_white;
+        display: none;
+      }
+   }
+
+  span {
+  background: $color_white;
+  border: none;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:  all .35s ease;
+  cursor: pointer;
+    &:nth-of-type(2) {
+      top: 11px;
+    }
+
+    &:nth-of-type(3) {
+      top: 22px;
+    }
+  }
 }
 
 .btn-menu-custom{
@@ -60,19 +112,19 @@ ul.menu-qpc-class {
         margin: 0;
         padding: 0;
         box-shadow:0px 4px 8px -2px rgba(0,0,0,0.22);
+        background: rgba(255,255,255,0.62);
+        color: $text_color;
 
         > li{
           text-align: left;
           display: block;
-          font-size: $size_base3;
+          font-size: $size_base;
           padding: 10px;
           &:hover{
-            background: $theme_color;
             color: $color_white;
             .sub-menu{
               li{
-                background: $color_white;
-                color: $text_color;
+
                   &:hover{
                     background: $theme_color;
                     color: $color_white;
@@ -137,7 +189,7 @@ ul.menu-qpc-class {
                 }
               }
               a{
-                font-size: $size_base3;
+                font-size: $size_base_3;
               }
             }
           }
@@ -153,24 +205,45 @@ ul.menu-qpc-class {
        }
       }
 
+      @media screen and (max-width: 1024px) {
 
-  @media screen and (max-width: 1024px) {
-    .popout {
+      .popout{
+        &.jc-sb{
+          justify-content: center;
+        }
+      }
+
+      }
+
+  @media screen and (max-width: 810px) {
+
+    .popout{
       position: fixed;
       height: 100%;
-      width: 250px;
+      width: 300px;
       background: rgba(25, 25, 25, .9);
       color: white;
       top: 0px;
-      left: 0;
+      left: -1000px;
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       display: none;
       z-index: 99;
       box-shadow: 37px 0px 191px 1px rgba(0, 0, 0, 0.75);
+      transition:  all .35s ease;
+      &-slide{
+        left: 0;
+        display: block !important;
+      }
+      &.displayFlexAiC{
+        //display: none;
+        position: fixed;
+      }
+
     }
 
     .toggle {
+      display: block;
       position: absolute;
       right: 35px;
       width: 28px;

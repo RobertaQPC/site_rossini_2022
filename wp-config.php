@@ -86,8 +86,10 @@ define ('WPCF7_LOAD_JS', false); // Added to disable JS loading
 define ('WPCF7_LOAD_CSS', false); // Added to disable CSS loading
 
 /* Disabilito i tag <p> e <br> da CF7 */
-
 define ('WPCF7_AUTOP', false );
+
+/* Abilito tutto il caricamento per i media (sopratutto svg) */
+define('ALLOW_UNFILTERED_UPLOADS', true);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )

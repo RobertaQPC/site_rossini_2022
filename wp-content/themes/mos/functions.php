@@ -24,98 +24,7 @@ function remove_block_widget() {
 }
 add_action( 'after_setup_theme', 'remove_block_widget' );
 
-
 add_filter( 'wp_lazy_loading_enabled', '__return_false' );
-
-function qpc_accordion()
-{
-    // Check function exists.
-    if (function_exists('acf_register_block_type')) {
-
-        acf_register_block_type(array(
-            'name'              => 'accordion',
-            'title'             => __('qpc accordion'),
-            'description'       => __('qpc accordion.'),
-            'example'           => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'testimonial'   => "<h1>Compila il blocco...</h1>",
-                    'author'        => "Alessandro Moschetti",
-                    'role'          => "Titolare",
-                    'is_preview'    => true
-                )
-            )
-        ),
-            'render_template'   => get_template_directory() . '/template-parts/blocks/ui/accordion/accordion.php',
-            'enqueue_script'    => get_template_directory_uri() . '/template-parts/blocks/ui/accordion/js/accordion.js',
-            'category'          => 'layout',
-            'icon'              => 'admin-comments',
-            'keywords'          => array( 'accordion', 'ui' ),
-        ));
-    }
-}
-add_action('acf/init', 'qpc_accordion');
-
-function qpc_swiper_blocks()
-{
-    // Check function exists.
-    if (function_exists('acf_register_block_type')) {
-        acf_register_block_type(array(
-            'name'              => 'Swiper gallery',
-            'title'             => __('Swiper gallery'),
-            'description'       => __('Gallery'),
-            'example'           => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'testimonial'   => "<h1>Compila il blocco...</h1>",
-                    'author'        => "Alessandro Moschetti",
-                    'role'          => "Titolare",
-                    'is_preview'    => true
-                )
-            )
-        ),
-            'render_template'   => get_template_directory() . '/template-parts/blocks/ui/swiper-gallery/swiper-block-gallery.php',
-            'category'          => 'layout',
-            'icon'              => 'admin-comments',
-            'keywords'          => array( 'gallery', 'ui' ),
-        ));
-    }
-}
-add_action('acf/init', 'qpc_swiper_blocks');
-
-function qpc_infoNumber()
-{
-
-    if (function_exists('acf_register_block_type')) {
-
-        acf_register_block_type(array(
-            'name'              => 'Infografica',
-            'title'             => __('Infografica'),
-            'description'       => __('Infografica.'),
-            'example'           => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'testimonial'   => "<h1>Compila il blocco...</h1>",
-                    'author'        => "Alessandro Moschetti",
-                    'role'          => "Titolare",
-                    'is_preview'    => true
-                )
-            )
-        ),
-            'render_template'   => get_template_directory() . '/template-parts/blocks/ui/infografica/infografica.php',
-            'enqueue_script'    => get_template_directory_uri() . '/template-parts/blocks/ui/infografica/js/infografica.js',
-            'enqueue_style'    => get_template_directory_uri() . '/template-parts/blocks/ui/infografica/css/app.css',
-            'category'          => 'layout',
-            'icon'              => 'admin-comments',
-            'keywords'          => array( 'infografica', 'ui' ),
-        ));
-    }
-}
-add_action('acf/init', 'qpc_infoNumber');
-
 
  // PHP inserita solo per colorazione sintassi
 add_filter('login_errors', 'sam_error_message');
@@ -354,7 +263,7 @@ the_post_thumbnail('medium');          // Medium resolution (default 300px x 300
 the_post_thumbnail('large');           // Large resolution (default 640px x 640px max)
 the_post_thumbnail('full');            // Original image resolution (unmodified)
 the_post_thumbnail(array(100, 100));  // Other resolutions
-add_image_size('thumbs-news-little', 383, 245, true); //90 la base (altezza in proporzione)
+add_image_size('thumbs-news-little', 420, 600, true); //90 la base (altezza in proporzione)
 add_image_size('thumbs-square', 670, 670, true); //90 la base (altezza in proporzione)
 add_image_size('thumbs-square-medium', 420, 420, true); //90 la base (altezza in proporzione)
 add_image_size('swiper-block-gallery-resize', 690, 460, true); //crop base ed altezza determinate
@@ -510,7 +419,8 @@ function qpc_menu()
     register_nav_menus(
         array(
             'menu-qpc' => __('Menu qpc'),
-            'extra-menu' => __('Extra Menu')
+            'extra-menu' => __('Extra Menu'),
+            'info-menu' => __('Menu informazioni utili')
         )
     );
 }
@@ -594,3 +504,5 @@ function register_widgets()
 }//end register_widgets()
 
 add_action('widgets_init', 'register_widgets');
+
+require get_template_directory() . '/template-parts/inc/block-patterns.php';

@@ -25,19 +25,17 @@
 <div data-barba="wrapper">
   <div class="loading-container">
    <div class="loading-screen">
+     <?php include(TEMPLATEPATH . '/template-parts/header/logosvg.php'); ?>
    </div>
   </div>
   <div data-barba="container" data-barba-namespace="<?php echo $post->post_name;?>">
-    <?php include(TEMPLATEPATH . '/template-parts/elements/pre-header.php'); ?>
+
     <div class="wrap-header fade-in-new">
-      <div class="qpc-container displayFlexcenter">
+      <?php include(TEMPLATEPATH . '/template-parts/elements/pre-header.php'); ?>
+      <div class="qpc-container displayFlexAiC jc-sb cont-header">
         <a id="page-logo" href="<?php bloginfo('url') ?>"
            title="<?php bloginfo('name') ?>  <?php bloginfo('description') ?>">
-            <img class="logo-desktop" src="<?php $custom_logo_id = get_theme_mod('custom_logo');
-            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-            echo $image[0]; ?>" alt="<?php bloginfo('name') ?>  <?php bloginfo('description') ?>">
-            <img class="logo-mobile" src="<?php echo site_url(); ?>/wp-content/themes/mos/images/logo-ente-concerti.svg;"
-                 alt="<?php bloginfo('name') ?>  <?php bloginfo('description') ?>">
+           <?php include(TEMPLATEPATH . '/template-parts/header/logosvg.php'); ?>
         </a>
           <?php include(TEMPLATEPATH . '/template-parts/elements/menu.php'); ?>
       </div>

@@ -35,9 +35,7 @@
 
     <a id="page-logo" href="<?php bloginfo('url') ?>"
        title="<?php bloginfo('name') ?>  <?php bloginfo('description') ?>">
-        <img class="logo-desktop" src="<?php $custom_logo_id = get_theme_mod('custom_logo');
-        $image = wp_get_attachment_image_src($custom_logo_id, 'banner-header-1920-550');
-        echo $image[0]; ?>" alt="<?php bloginfo('name') ?>  <?php bloginfo('description') ?>">
+       <?php include(TEMPLATEPATH . '/template-parts/header/logosvg.php'); ?>
     </a>
     <?php include(TEMPLATEPATH . '/template-parts/elements/menu.php'); ?>
     <!--<div class="vertical-line"></div>-->

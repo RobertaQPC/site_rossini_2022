@@ -1,12 +1,8 @@
-
-.wp-block-cover, .wp-block-cover-image{
-  padding: 0;
-}
-
 // Blocco swiper
 .swiper-head{
   position: relative;
   width: 100%;
+  padding: 0;
   &:before{
     content: '';
     position: absolute;
@@ -24,48 +20,60 @@
     mix-blend-mode: difference;
     padding: 0;
     margin: 0;
+    bottom: -20%;
     span{
       font-size: 78px !important;
       font-weight: 700;
-      color: white;
       line-height: 85px;
       color: white;
     }
   }
 }
 
-
-// Blocco swiper
+.swiper-home{
+  height: 100vh;
+  video{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
 
 
 // General swiper
-.swiper-wrapper {
-  padding-bottom: 30px;
-}
 
 .swiper-pagination-bullet {
   width: 18px;
   height: 18px;
 }
 
-.swiper-pagination-white .swiper-pagination-bullet-active {
-  background: $theme_color;
-}
-
 .swiper-pagination-bullet {
+  &-active{
+      background: $color_black;
+      border: 2px solid $color_black;
+  }
   background: none;
-  border: 2px solid $theme_color;
+  border: 2px solid $medium_gray-2;
 }
 
 .swiper-pagination {
-  bottom: 0;
+  bottom: auto;
+  position: relative;
+  margin: 10px 0 30px 0;
+  display: block;
 }
 
 .swiper-container {
   width: 100%;
 }
 
-
+.swiper-wrapper{
+  padding: 30px 0;
+}
 
 .swiper1 .swiper-slide {
   display: flex;
@@ -74,7 +82,6 @@
 }
 
 .swiper-slide {
-  color: #fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -95,26 +102,9 @@
   background-position: center;
 }
 
-.swiper-slide .title {
-  font-size: 52px;
-  font-weight: 300;
-  text-align: center;
-  font-weight: 900;
-}
-
-.swiper-slide .subtitle {
-  font-size: 28px;
-  text-align: center;
-  font-weight: bold;
-}
-
 /* ==========================================================================
 	Ovveride slider home
  ========================================================================== */
-
- .swiper-home{
-   height:100vh !important;
- }
 
 .swiper1 {
   padding: 0;
@@ -158,26 +148,25 @@
   .swiper2 {
     padding: 5px;
     .swiper-slide {
-      text-align: center;
       color: $text_color;
-      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.47);
-    }
-    .swiper-wrapper {
-      padding-bottom: 80px;
-    }
-    .swiper-pagination {
-      bottom: 0 !important;
-      padding: 25px 0;
-      .swiper-pagination-bullet{
-        border: 1px solid $theme_color;
-        background: none;
-        &-active{
-          background: $theme_color;
+      padding: 40px;
+      .featured-image{
+        img{
+            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.17);
+            transition: all 0.3s ease-in-out 0s;
+          &:hover{
+            box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.17);
+          }
+        }
+        .mc-description{
+          padding: 30px 0 10px 0;
+          text-align: left;
+          &-title{
+            font-family: $font_sans_serif_bold;
+            display: block;
+          }
         }
       }
-    }
-    img{
-      margin: 0;
     }
   }
 

@@ -1,3 +1,17 @@
+.qpc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .qpc-grid-33 {
+    grid-area: 5 / 5 / 6 / 6;
+    color: $text_color;
+  }
+
+}
+
 .qpcRow{
   display:flex;
   align-items: center;
@@ -40,36 +54,8 @@
   }
 }
 
-/* ==========================================================================
-	Heplers
- ========================================================================== */
-
- .h3-wrapper{
-   display: flex;
-   align-items: center;
-   padding: 10px 0;
- }
-
- .displayFlexAiC{
-   position: relative;
-   display: flex;
-   align-self: center;
- }
-
-.jc-sb{
-  justify-content: space-between;
-  display: flex;
-}
-
-.ai-fs{
-  align-items: flex-start;
-}
-
 
 @media only screen and (max-width: 1023px) {
-
-
-
 
   .calendario-template, .row-archive-products {
     .qpcRow{
@@ -81,7 +67,7 @@
            padding-right: 1%
         }
         &:last-child{
-           padding-left: 1% 
+           padding-left: 1%
         }
       }
     }

@@ -9,11 +9,11 @@
 'swiper',
 'accordion',
 '404',
-'tabs',
 'buttons',
 'blog',
 'blocks',
 'qpc-menu-toogle',
+'qpc-helpers',
 'qpc-infografica',
 'wp-native-gallery',
 'pre-header',
@@ -23,44 +23,62 @@
 'forms',
 'footer',
 'qpc-loading-screen',
+'qpc-overlay',
+'qpc-insta-grid',
 'jquery.fancybox.min.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;700&display=swap');
+@font-face {
+  font-family: "neue_machinaregular";
+  font-weight: normal;
+  font-style: normal;
+  src: url($fonts_dir + 'neuemachina-regular-webfont.woff2') format("woff2"),
+  url($fonts_dir + 'neuemachina-regular-webfont.woff') format("woff")
+}
+
+@font-face {
+    font-family: 'neue_machinaultrabold';
+    font-weight: normal;
+    font-style: normal;
+    src: url($fonts_dir + 'neuemachina-ultrabold-webfont.woff2') format("woff2"),
+    url($fonts_dir + 'neuemachina-ultrabold-webfont.woff') format("woff")
+}
+
+@font-face {
+    font-family: 'sangbleu_empireregular';
+    src: url('../fonts/sangbleuempire-regular-webfont.woff2') format('woff2'),
+         url('../fonts/sangbleuempire-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
   margin: 0;
   padding: 0;
   @include tipografia(sans-serif);
   color: $text_color;
+  overflow-x: hidden;
+  background: $color_white;
 }
 
 .input-wrap-header input,
 .swiper-head .wrap-swiper-title span,
 .titleHome span,
-h1, h2, h3, h4, h5, h6  {
+h1, h2,  h4, h5, h6  {
   @include tipografia();
 }
 
 img{
   width: 100%;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ==========================================================================
 	@mixin
 /* ========================================================================== */
 
-.qpcScrollWrapper{
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-}
-
-.qpcScrollContainer{
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
 
 @mixin box-shadow-blur($blur-value) {
   box-shadow: 0px 0px $blur-value 0px rgba(0, 0, 0, 0.20);
@@ -79,24 +97,7 @@ img{
 }
 
 b, strong {
-  font-weight: $font_weight_bold;
-}
-
-a{
-  color: inherit;
-  font-weight: bold;
-}
-
-.qpc-container{
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 0 20px
-}
-
-.displayFlexcenter{
-  display: flex;
-  align-items: center;
-  position: relative;
+  font-family: $font_sans_serif_bold;
 }
 
 
@@ -178,21 +179,19 @@ h1.title-style-theme-color {
   margin: 0 auto 110px
 }
 
+/* ==========================================================================
+   Homepage section
+ ========================================================================== */
+
+.page-template-homepage{
+ #wrap-custom-post{
+   margin-top: 20%;
+ }
+}
 
 /* ==========================================================================
  	Welcome section
  ========================================================================== */
-
-
-#content-wrap {
-  i {
-    color: $theme_color;
-  }
-  a {
-    font-weight: bold;
-  }
-}
-
 
 .all-results {
   display: flex;
@@ -216,9 +215,9 @@ h1.title-style-theme-color {
 }
 
 .breadcrumb {
-  font-size: $size_span;
+  font-size: $size_base;
   span{
-    font-size: $size_span;
+    font-size: $size_base;
   }
 }
 
@@ -301,34 +300,8 @@ h1.title-style-theme-color {
  #content-wrap {
    display: block;
    margin: 0 auto;
-   /*max-width: 1170px;*/
  }
 
-
-.container-news {
-  position: relative;
-  margin: 0 auto;
-  .btnScheda{
-    display: block;
-    margin: 0 auto;
-    margin: 40px auto 0 auto;
-    text-align: center !important;
-    color: $theme_color;
-  }
-}
-
-.mc-description.news-home{
-  color: $text_color;
-  font-size: 16px;
-  padding: 30px 60px;
-  text-align: left;
-  a{
-    font-size: $size_base;
-    padding: 7px 0 7px 0;
-    display: block;
-    text-decoration: none;
-  }
-}
 
 /* ==========================================================================
 	Pagina contatti
@@ -487,13 +460,11 @@ h1.title-style-theme-color {
 
 
   .wrap-autocomplete {
-
     input {
       font-size: 12px;
       &:first-child {
         margin: 15px 0 10px 0;
       }
-
     }
   }
 
@@ -505,8 +476,6 @@ h1.title-style-theme-color {
       bottom: 10px;
     }
   }
-
-
 }
 
 @media only screen and (max-width: 568px) {
@@ -523,27 +492,5 @@ h1.title-style-theme-color {
       padding: 0;
     }
   }
-
-  body{
-    font-size: $size_base3;
-  /*  line-height: 20px; */
-  }
-
-  .mc-description.news-home{
-    padding: 10px;
-    .btnScheda{
-      margin: 10px auto;
-    }
-  }
-
-}
-
-/* oltre i 1534px */
-@media only screen and (min-width: 1535px) {
-
-}
-
-/* High PX Density */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
 
 }

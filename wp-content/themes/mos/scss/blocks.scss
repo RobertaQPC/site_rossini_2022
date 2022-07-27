@@ -1,3 +1,106 @@
+.qpc-block-title{
+  h3{
+    font-family: $font_sans_serif_bold;
+    font-size: $size_base_3;
+  }
+  p{
+    margin: 0 0 30px 0;
+  }
+}
+
+//Horizontal gallery
+.pin-spacer{
+  z-index: 1 !important;
+  width: 100vw !important;
+  background: white;
+}
+.qpc-horizontal-gallery{
+  z-index: 2;
+  position: relative;
+//  white-space: nowrap;
+  display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+  .qpc-h-gallery{
+    li{
+      list-style-type: none;
+      margin: 10px 30px;
+       display: inline-block;
+      img{
+        border-radius: $raggio-2;
+
+      }
+    }
+  }
+
+}
+//Horizontal gallery
+.swiper-slide:nth-child(3n+2){
+  .wrap-box-slide{
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top:0;
+  }
+}
+.swiper-slide:not(:nth-child(3n+2)){
+  .wrap-box-slide{
+    border-bottom: 1px solid black;
+  }
+}
+
+.wrap-box-slide{
+  padding: 40px 60px;
+  span{
+    display: block;
+    margin: 20px 0;
+    &:first-child{
+      font-family: $font_sans_serif_bold;
+      font-size: $size_base_2;
+    }
+  }
+}
+
+//Copertina
+.qpc-copertina{
+  font-family: $font_serif_regular;
+  border-radius: $raggio-4;
+  padding: 100px 0;
+  margin: 60px auto !important;
+  span{
+    mix-blend-mode: hard-light;
+    border-radius: $raggio-4;
+    overflow: hidden;
+  }
+    .wrap-text-copertina{
+      left: 50%;
+      transform: translateX(-50%);
+          &:before{
+            content: '{';
+            position: absolute;
+            left: -120px;
+            font-size: 20vw;
+          }
+          &:after{
+            content: '}';
+            position: absolute;
+            right: -120px;
+            font-size: 20vw;
+          }
+            p:nth-child(1){
+              font-size: $size_big_title_variable;
+              margin: 20px 0;
+              line-height: 20vh;
+            }
+            p:nth-child(2){
+              font-size: $size_base;
+              line-height: inherit;
+              max-width: 850px;
+            }
+    }
+}
+//Copertina
+
 .block-850{
   max-width: 850px !important;
   padding: 0 20px;
@@ -17,77 +120,25 @@
       }
     }
   }
-  h2{
-    position: relative;
-    font-weight: $font_weight_regular;
-    @include fluid-type($min_width, $max_width, $min_font, $max_font);
-    &:after{
-      content: '';
-      position: relative;
-      display: block;
-      height: 1px;
-      margin-left: 70px;
-      background: $text_color;
-    }
-    &:before{
-      content: '';
-      background: url($images_dir + 'dot-title.svg') repeat;
-      position: absolute;
-      display: block;
-      bottom: -5px;
-      left: 7px;
-      width: 51px;
-      height: 12px;
-    }
-  }
 
 
 .wp-block-button__link{
-  background-color: $theme_color;
+  background-color: $color_black;
   padding: calc(.3447em + 2px) calc(1.333em + 2px);
-  font-size: $size_base3;
+  font-size: $size_base_3;
   color: white;
-  font-family: $font_serif_regular;
+  font-family: $font_sans_serif_regular;
   transition: all 0.4s ease-in-out 0s;
   -webkit-appearance: none;
   &:hover{
-    background-color: $theme_color2;
-    color: $text_color;
+    background-color: $color_white;
+    color: $color_black;
   }
 }
 
 
-.wp-block-group, .pre-footer, .qpc-container{
-  h2{
-    position: relative;
-    font-weight: $font_weight_regular;
-    @include fluid-type($min_width, $max_width, $min_font, $max_font);
-    &:after{
-      content: '';
-      position: relative;
-      display: block;
-      height: 1px;
-      margin-left: 70px;
-      background: $text_color;
-      top: 5px;
-    }
-    &:before{
-      content: '';
-      background: url($images_dir + 'dot-title.svg')  no-repeat;
-      background-size: cover;
-      position: absolute;
-      display: block;
-      bottom: -10px;
-      left: 7px;
-      width: 51px;
-      height: 12px;
-    }
-  }
-}
 @media only screen and (max-width: 768px) {
-  .wp-block-group h2, .pre-footer h2, .qpc-container h2{
-    margin: 30px 0 40px 0;
-  }
+
 
 }
 
@@ -100,10 +151,5 @@
   .titleCenter{
   display: block;
 }
-  .wp-block-group h2:before, .pre-footer h2:before, .qpc-container h2:before{
-    bottom: -18px;
-  }
-  .wp-block-group h2:after, .pre-footer h2:after, .qpc-container h2:after{
-    top: 12px;
-  }
+
 }

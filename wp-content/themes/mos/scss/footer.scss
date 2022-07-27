@@ -11,7 +11,7 @@
     background: $color_white;
     p,a{
       color: $text_color !important;
-      font-size: $size_footer;
+      font-size: $size_base;
     }
     .credit{
       text-align: right;
@@ -20,7 +20,7 @@
 
   p{
     @include tipografia(sans-serif);
-    font-size: $size_span;
+    font-size: $size_base;
     line-height: 24px;
   }
   .logo-footer{

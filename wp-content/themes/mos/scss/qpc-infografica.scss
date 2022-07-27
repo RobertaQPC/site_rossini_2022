@@ -32,12 +32,11 @@
      &:first-of-type {
        font-family: $font_serif_regular;
        font-weight: $font_weight_bold;
-       font-size: $size_big_title;
+       font-size: $big_title;
      }
    }
  }
 }
-
 
 @media only screen and (max-width: 1024px) {
   .qpc-infografica{

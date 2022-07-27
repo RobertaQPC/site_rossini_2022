@@ -9,7 +9,7 @@
     "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
     "jquery-bridget": "^3.0.1",
-    "swiper": "^6.8.1"
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",

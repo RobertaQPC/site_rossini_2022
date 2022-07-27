@@ -1,7 +1,7 @@
  <?php
   /* uso l'header personalizzato */
   define('mos', false); // determino il tema e rimuovo l'hedear di dafault presente nella root
-  require('template-parts/header/corsi-header.php');
+  require('template-parts/header/archive-header.php');
 
   $currentTermID = get_queried_object_id();
   $currentTerm = get_queried_object();
@@ -10,21 +10,27 @@
 
  <div class="qpc-container wrap-archive-products">
    <h1 class="article-title"><?= $currentTerm->name; ?>*<?= $currentTerm->name; ?>*<?= $currentTerm->name; ?> </h1>
+     <div class="qpcRow button-group filters-button-group">
+       <button class="btnScheda" data-filter="*">Tutti i corsi</button>
+       <button class="btnScheda" data-filter=".integrative-e-affini">Integrative e affini</button>
+       <button class="btnScheda" data-filter=".a-scelta">A scelta</button>
+       <button class="btnScheda" data-filter=".base">Base</button>
+       <button class="btnScheda" data-filter=".caratterizzante">Caratterizzante</button>
+     </div>
    <?php
 
     $terms = get_terms(['taxonomy' => 'corsi_categoria', 'parent' => $currentTermID, 'orderby' => 'name' ]);
     if ($terms) { ?>
 
-     <div class="qpcRow">
+     <div class="qpcRow  isotope">
        <?php
         foreach ($terms as $term) {
           if ($term->parent == $currentTermID) {  ?>
-           <div class="qpc-col-33">
+           <div class="qpc-col-33 <?= str_replace(" ","-", strtolower(get_field("tipologia"))); ?>">
              <h3><?= $term->name ?></h3>
              <div class="news-home"><?= $term->description; ?></div>
              <a class="link" href="<?= get_term_link($term, "corsi_categoria") ?>"><?php esc_html_e('Approfondisci', 'mos-theme'); ?> </a>
            </div>
-
        <?php
           }
         } ?>
